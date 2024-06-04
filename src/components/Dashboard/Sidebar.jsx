@@ -1,4 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import {
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Collapse,
+  Divider,
+} from '@mui/material';
+import {
+  SystemUpdateAlt,
+  SettingsEthernet,
+  Policy,
+  AccountTree,
+  Public,
+  Security,
+  Category,
+  ReceiptLong,
+  VerifiedUser,
+  Group,
+  SwapHoriz,
+  LibraryBooks,
+  Description,
+  EventNote,
+  VpnLock,
+  Build,
+  ExpandLess,
+  ExpandMore,
+} from '@mui/icons-material';
 
 const Sidebar = () => {
   const [dropdownOpen, setDropdownOpen] = useState({
@@ -22,81 +50,133 @@ const Sidebar = () => {
   return (
     <div className="w-64 h-full bg-white border-r">
       <div className="p-4">
-        <ul>
-          <li>
-            <button onClick={() => toggleDropdown('systemStatus')} className="w-full text-left">
-              System Status
-            </button>
-            {dropdownOpen.systemStatus && <ul className="pl-4">/* System Status Submenu */</ul>}
-          </li>
-          <li>
-            <button onClick={() => toggleDropdown('networkConfigure')} className="w-full text-left">
-              Network Configure
-            </button>
-            {dropdownOpen.networkConfigure && <ul className="pl-4">/* Network Configure Submenu */</ul>}
-          </li>
-          <li>
-            <button onClick={() => toggleDropdown('flowControlPolicy')} className="w-full text-left">
-              Flow Control Policy
-            </button>
-            {dropdownOpen.flowControlPolicy && <ul className="pl-4">/* Flow Control Policy Submenu */</ul>}
-          </li>
-          <li>
-            <button onClick={() => toggleDropdown('acManagement')} className="w-full text-left">
-              AC Management
-            </button>
-            {dropdownOpen.acManagement && <ul className="pl-4">/* AC Management Submenu */</ul>}
-          </li>
-          <li>
-            <button onClick={() => toggleDropdown('authInternetAccess')} className="w-full text-left">
-              Auth Internet Access
-            </button>
-            {dropdownOpen.authInternetAccess && <ul className="pl-4">/* Auth Internet Access Submenu */</ul>}
-          </li>
-          <li>
-            <button onClick={() => toggleDropdown('behaviorControl')} className="w-full text-left">
-              Behavior Control
-            </button>
-            {dropdownOpen.behaviorControl && <ul className="pl-4">/* Behavior Control Submenu */</ul>}
-          </li>
-          <li>
-            <button onClick={() => toggleDropdown('objectManagement')} className="w-full text-left">
-              Object Management
-            </button>
-            {dropdownOpen.objectManagement && <ul className="pl-4">/* Object Management Submenu */</ul>}
-          </li>
-          <li>
-            <button onClick={() => toggleDropdown('safetyProtection')} className="w-full text-left">
-              Safety Protection
-            </button>
-            {dropdownOpen.safetyProtection && <ul className="pl-4">/* Safety Protection Submenu */</ul>}
-          </li>
-          <li>
-            <button onClick={() => toggleDropdown('logRecord')} className="w-full text-left">
-              Log Record
-            </button>
-            {dropdownOpen.logRecord && <ul className="pl-4">
-              <li>User Auth Log</li>
-              <li>Online User Log</li>
-              <li>Interface Flow Log</li>
-              <li>System Log</li>
-              <li>AC Operation Log</li>
-              <li>AP Event Log</li>
-            </ul>}
-          </li>
-          <li>
-            <button onClick={() => toggleDropdown('vpn')} className="w-full text-left">
-              VPN
-            </button>
-            {dropdownOpen.vpn && <ul className="pl-4">/* VPN Submenu */</ul>}
-          </li>
-          <li>
-            <button onClick={() => toggleDropdown('deviceMaintenance')} className="w-full text-left">
-              Device Maintenance
-            </button>
-            {dropdownOpen.deviceMaintenance && <ul className="pl-4">/* Device Maintenance Submenu */</ul>}
-          </li>
-        </ul>
+        <List>
+          <ListItem button onClick={() => toggleDropdown("systemStatus")}>
+            <ListItemIcon><SystemUpdateAlt /></ListItemIcon>
+            <ListItemText primary="System Status" />
+            {dropdownOpen.systemStatus ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={dropdownOpen.systemStatus} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {/* System Status Submenu */}
+            </List>
+          </Collapse>
+
+          <ListItem button onClick={() => toggleDropdown("networkConfigure")}>
+            <ListItemIcon><SettingsEthernet /></ListItemIcon>
+            <ListItemText primary="Network Configure" />
+            {dropdownOpen.networkConfigure ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={dropdownOpen.networkConfigure} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {/* Network Configure Submenu */}
+            </List>
+          </Collapse>
+
+          <ListItem button onClick={() => toggleDropdown("flowControlPolicy")}>
+            <ListItemIcon><Policy /></ListItemIcon>
+            <ListItemText primary="Flow Control Policy" />
+            {dropdownOpen.flowControlPolicy ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={dropdownOpen.flowControlPolicy} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {/* Flow Control Policy Submenu */}
+            </List>
+          </Collapse>
+
+          <ListItem button onClick={() => toggleDropdown("acManagement")}>
+            <ListItemIcon><AccountTree /></ListItemIcon>
+            <ListItemText primary="AC Management" />
+            {dropdownOpen.acManagement ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={dropdownOpen.acManagement} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {/* AC Management Submenu */}
+            </List>
+          </Collapse>
+
+          <ListItem button onClick={() => toggleDropdown("authInternetAccess")}>
+            <ListItemIcon><Public /></ListItemIcon>
+            <ListItemText primary="Auth Internet Access" />
+            {dropdownOpen.authInternetAccess ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={dropdownOpen.authInternetAccess} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {/* Auth Internet Access Submenu */}
+            </List>
+          </Collapse>
+
+          <ListItem button onClick={() => toggleDropdown("behaviorControl")}>
+            <ListItemIcon><Security /></ListItemIcon>
+            <ListItemText primary="Behavior Control" />
+            {dropdownOpen.behaviorControl ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={dropdownOpen.behaviorControl} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {/* Behavior Control Submenu */}
+            </List>
+          </Collapse>
+
+          <ListItem button onClick={() => toggleDropdown("objectManagement")}>
+            <ListItemIcon><Category /></ListItemIcon>
+            <ListItemText primary="Object Management" />
+            {dropdownOpen.objectManagement ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={dropdownOpen.objectManagement} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {/* Object Management Submenu */}
+            </List>
+          </Collapse>
+
+          <ListItem button onClick={() => toggleDropdown("safetyProtection")}>
+            <ListItemIcon><Security /></ListItemIcon>
+            <ListItemText primary="Safety Protection" />
+            {dropdownOpen.safetyProtection ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={dropdownOpen.safetyProtection} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {/* Safety Protection Submenu */}
+            </List>
+          </Collapse>
+
+          <ListItem button onClick={() => toggleDropdown("logRecord")}>
+            <ListItemIcon><ReceiptLong /></ListItemIcon>
+            <ListItemText primary="Log Record" />
+            {dropdownOpen.logRecord ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={dropdownOpen.logRecord} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem><ListItemText primary="User Auth Log" /></ListItem>
+              <ListItem><ListItemText primary="Online User Log" /></ListItem>
+              <ListItem><ListItemText primary="Interface Flow Log" /></ListItem>
+              <ListItem><ListItemText primary="System Log" /></ListItem>
+              <ListItem><ListItemText primary="AC Operation Log" /></ListItem>
+              <ListItem><ListItemText primary="AP Event Log" /></ListItem>
+            </List>
+          </Collapse>
+
+          <ListItem button onClick={() => toggleDropdown("vpn")}>
+            <ListItemIcon><VpnLock /></ListItemIcon>
+            <ListItemText primary="VPN" />
+            {dropdownOpen.vpn ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={dropdownOpen.vpn} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {/* VPN Submenu */}
+            </List>
+          </Collapse>
+
+          <ListItem button onClick={() => toggleDropdown("deviceMaintenance")}>
+            <ListItemIcon><Build /></ListItemIcon>
+            <ListItemText primary="Device Maintenance" />
+            {dropdownOpen.deviceMaintenance ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={dropdownOpen.deviceMaintenance} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {/* Device Maintenance Submenu */}
+            </List>
+          </Collapse>
+        </List>
       </div>
     </div>
   );
