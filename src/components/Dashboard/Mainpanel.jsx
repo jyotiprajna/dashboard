@@ -1,10 +1,10 @@
 import React from "react";
+import ACOperationLog from "../SubMenuPages/ACOperationLog";
 
 const MainPanel = () => {
   return (
     <div className="flex-grow p-4">
-      <h1 className="text-2xl font-bold">Main Panel</h1>
-      {/* Additional main panel content */}
+      <ACOperationLog/>
     </div>
   );
 };
